@@ -77,14 +77,14 @@
                   </VBox>
                </children>
             </HBox>
-            <VBox prefHeight="304.0" prefWidth="193.0">
+            <VBox prefHeight="304.0" prefWidth="248.0">
                <children>
                   <Label text="State Papan">
                      <font>
                         <Font size="10.0" />
                      </font>
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets left="20.0" top="20.0" />
                      </VBox.margin>
                   </Label>
                   <GridPane fx:id="stateConfigurasi" alignment="CENTER" hgap="2.0" prefHeight="200.0" prefWidth="193.0" vgap="2.0">
@@ -145,7 +145,7 @@
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelOutputHasil" text="VALID">
+                        <Label fx:id="labelOutputHasil">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -159,7 +159,7 @@
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelOutputWaktuIterasi" text="100 MS">
+                        <Label fx:id="labelOutputWaktuIterasi">
                            <font>
                               <Font size="10.0" />
                            </font>
@@ -176,7 +176,7 @@
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelOutputBanyakIterasi" text="n iterasi">
+                        <Label fx:id="labelOutputBanyakIterasi">
                            <font>
                               <Font size="10.0" />
                            </font>

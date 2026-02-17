@@ -97,12 +97,9 @@ public class SolverBruteForce {
      * Berikut adalah algoritma searching menggunakan pencarian pada State Space Tree dengan backtracking
      * 1. Cara kerjanya melakuan iterasi semua warna dengan index warna pada map kemudian meload posisi apa saja yang tersedia 
      * 2. untuk setiap posisi yang tersedia akan melakukan checking apakah bisa ditaruh queen atau tidak
-     * 3. Jika bisa bisa ditaruh queen akan memanggil fungsinya lagi untuk index warna yang berbeda kemudian mengulangi step 1-2
-     * 4. Jika 
-     * 
-     * 
-     * 
-     *  */ 
+     * 3. Jika bisa bisa ditaruh queen akan memanggil fungsinya lagi untuk index warna yang berbeda kemudian mengulangi step 1-2 memberikan output true harena bisa ditaruh queen
+     * 4. Jika tidak bisa ditaruh maka akan tidak menaruh queen berikutnya dan melajutkan iterasi posisi berikutnya dan memberikan output false karena tidak bisa ditaruh queen
+     **/ 
     private boolean solveRecursive(int idxWarna, List<Character> warna){
         this.iteration++;
         if (idxWarna == warna.size()){

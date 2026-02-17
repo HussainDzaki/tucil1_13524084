@@ -52,7 +52,7 @@ public class GUIController {
 
     @FXML
     void cariSolusi(ActionEvent event) {
-        SolverBacktracking solver = new SolverBacktracking(board);
+        SolverBruteForce solver = new SolverBruteForce(board);
         drawBoard(null);
 
         solver.setCallback((currpos) -> {
@@ -74,7 +74,7 @@ public class GUIController {
                     drawBoard(null);
                     labelOutputHasil.setText("TIDAK DITEMUKAN SOLUSI");
                 }
-                labelOutputWaktuIterasi.setText(String.format("%f ms", (endTime - startTime) / 1000000.0));
+                labelOutputWaktuIterasi.setText(String.format("%.2f ms", (endTime - startTime) / 1000000.0));
                 labelOutputBanyakIterasi.setText(String.format("%d iterasi", solver.getIteration()));
             });
         });
