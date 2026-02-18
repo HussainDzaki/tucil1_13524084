@@ -39,8 +39,8 @@ Aplikasi GUI berbasis JavaFX untuk menyelesaikan permasalahan papan (Board Puzzl
 │       └── resources
 │           └── tucil1_13524084
 │               ├── Queen.png             # Aset gambar
-│               ├── primary.fxml          # Layout GUI Utama
-│               └── secondary.fxml        # Layout GUI Tambahan (jika ada)
+│               └── primary.fxml          # Layout GUI Utama
+│         
 ├── target                # Hasil kompilasi (Bytecode & Jar)
 └── test                  # Kumpulan test case (.txt)
     ├── test1.txt
