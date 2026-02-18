@@ -139,6 +139,10 @@ public class GUIController {
             scanner.close();
         }
 
+        if (board.cols != board.rows) {
+            labelOutputHasil.setText(String.format("Ukuran Board tidak sama (%d x %d)", board.cols, board.rows));
+        }
+
     }
 
     @FXML

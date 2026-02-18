@@ -39,7 +39,8 @@ public class Board {
             if (line.trim().isEmpty()) {
                 break;
             }
-            barisInput.add(line.trim());
+
+            barisInput.add(line.replaceAll("\\s+", "").trim());
         }
 
         if (barisInput.isEmpty()) {

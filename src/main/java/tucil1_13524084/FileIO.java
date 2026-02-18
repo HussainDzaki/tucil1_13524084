@@ -11,7 +11,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextInputDialog;
 
 public class FileIO {
-    static String path = "src/main/save/";
+    static String path = "save/";
     static String header = "Penyelesaian Permasalahan Queens LinkedIn\nFile ini dibuat saat " + LocalDateTime.now();
 
     public static void saveFile(Board board, List<Position> solusi, String waktuIterasi, String banyakIterasi) {

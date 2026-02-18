@@ -1,0 +1,4 @@
+AABB
+CCDD
+EEFF
+GGHH
