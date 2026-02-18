@@ -1,24 +1,54 @@
-
 # **Tugas Kecil 1 IF2211 Strategi Algoritma**
 
-Sejauh ini, cara ngerun kodenya seperti berikut:
-
-1. Pindah ke direktori tucil1_13524084, lalu masukin perintah
-2. Terus pidah tucil1_13524084/, masukin perintah
-
+```
+Nama: Dzaki Ahmad Al Hussainy
+NIM: 13524084
+Kelas: K02
 ```
 
+Aplikasi GUI berbasis JavaFX untuk menyelesaikan permasalahan papan (Board Puzzle) menggunakan algoritma  **Brute Force** . Aplikasi ini memvisualisasikan proses pencarian solusi, memungkinkan pengguna mengunggah konfigurasi papan, dan menyimpan hasil solusi.Requirements
+
+### Fitur
+
+* **GUI** : dengan javafx
+* **Visualisasi Solusi** : Menampilkan papan dan penempatan item (Block/Queen) dengan warna yang berbeda (A-Z)
+* **Animasi Pencarian:** Melihat proses algoritma Brute Force bekerja secara *real-time* (update per langkah).
+* **Input Fleksibel:** Mendukung upload file `.txt` untuk konfigurasi papan.
+* **Simpan Solusi:**Simpan koordinat solusi ke format  **.TXT** .
+
+### Struktur File
+
+```
+├── Makefile              # Skrip untuk automasi build/run
+├── README.MD             # Dokumentasi proyek
+├── docs                  # Laporan atau dokumentasi tambahan
+├── pom.xml               # Konfigurasi Maven dependencies
+├── save                  # Folder output default (opsional)
+├── src
+│   └── main
+│       ├── java
+│       │   ├── module-info.java
+│       │   └── tucil1_13524084
+│       │       ├── App.java              # Entry point aplikasi JavaFX
+│       │       ├── Board.java            # Model data papan permainan
+│       │       ├── FileIO.java           # Utilitas membaca/menulis file
+│       │       ├── GUIController.java    # Logika interaksi UI & Threading
+│       │       ├── Position.java         # Data struktur koordinat (row, col)
+│       │       ├── SolutionCallback.java # Interface untuk update GUI dari Solver
+│       │       └── SolverBruteForce.java # Algoritma pencarian solusi
+│       └── resources
+│           └── tucil1_13524084
+│               ├── Queen.png             # Aset gambar
+│               ├── primary.fxml          # Layout GUI Utama
+│               └── secondary.fxml        # Layout GUI Tambahan (jika ada)
+├── target                # Hasil kompilasi (Bytecode & Jar)
+└── test                  # Kumpulan test case (.txt)
+    ├── test1.txt
+    ├── ...
+    └── test10.txt
 ```
 
-## About this template
-
-This template is the starter file structure for Tubes 1 Algeo 2025/2026. This template is a Java project using Maven Build tool with JavaFX GUI already configured in pom.xml.
-
-In this project, you can choose if you want to develop to CLI or GUI app. The default is CLI, if you want GUI do uncomment the necessary part in App.java to run the template GUI test then run the commands below to run the app.
-
-## Requirements
-
-Before building and running the **Matrix Calculator**, make sure you have the following installed:
+### Prayarat
 
 ### Java
 
@@ -32,84 +62,10 @@ Before building and running the **Matrix Calculator**, make sure you have the fo
 - **Download links:**
   - [Direct Apache Maven Official Downloads](https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.zip)
 
-### Additional installation info
 
-### Windows
+### Cara Kompilasi
 
-For maven installation, download the .zip and it should contain a directory with
+1. Pergi ke main direktori tucil1_13524084/
+2. kemudian run
 
-```
-apache-maven-<version>/
-├── bin/               <-- executable scripts (mvn, mvn.cmd)
-├── boot/
-├── conf/
-├── lib/
-├── NOTICE
-├── LICENSE
-├── README.txt
-```
-
-Put bin/ in environment PATH to use in terminal. [Add folder to PATH tutorial](https://www.youtube.com/watch?v=pGRw1bgb1gU)
-
-### Linux
-
-```bash
-sudo apt update
-sudo apt install openjdk-17-jdk -y
-sudo apt install maven -y
-```
-
-### MacOS
-
-```bash
-brew install openjdk@17
-brew install maven
-```
-
-## How to develop
-
-Using maven, the root development directory is `src/main/java/algeo`
-There should not be any coding outside of that directory other than `test` using JUnit or other libraries.
-
-Inside `src/main/java/algeo`, develop modules that are modular to use in the main program (`App.java`)
-
-When running `mvn exec:java` later, `App.java` main program will be the one that is run.
-
-## How to run
-
-1. Compiling the program
-   The following command will produce a `target` directory with `matrix-calculator-1.0-SNAPSHOT.jar` in it
-
-```bash
-mvn clean package
-```
-
-alternatively, if you don't want to make a .jar file, you can use
-
-```bash
-mvn clean compile
-```
-
-2. Running the program
-   To run CLI, run:
-
-```bash
-mvn exec:java
-```
-
-To run GUI, be sure to uncomment the main GUI and run:
-
-```bash
-mvn clean javafx:run
-```
-
-when the program is first run, it should print in terminal:
-
-```bash
-Hai
-Halo Algeo!
-```
-
-## Using the program as a library
-
-Copy the .jar file that is in the `target` file (from running `mvn clean compile`) to `bin` for submission, this .jar file can be used in other projects to import modules in this current project
+   `make run`
