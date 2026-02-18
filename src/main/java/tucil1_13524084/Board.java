@@ -57,8 +57,9 @@ public class Board {
 
 
             if (line.length() != cols) {
-                System.out.print("Error Baris ke-" + (i + 1) + ": Panjang tidak konsisten!");
-                break;
+                input.close();
+                throw new IllegalArgumentException("Error Baris ke-" + (i + 1));
+
             }
 
             for (int j = 0; j < cols; j++) {
@@ -116,5 +117,6 @@ public class Board {
         this.cols = 0;
         this.rows = 0;
     }
+    
 
 }

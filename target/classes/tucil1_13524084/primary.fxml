@@ -27,7 +27,7 @@
             </TextArea>
          </children>
       </HBox>
-      <HBox prefHeight="304.0" prefWidth="600.0">
+      <HBox prefHeight="363.0" prefWidth="600.0">
          <children>
             <HBox prefHeight="302.0" prefWidth="159.0">
                <children>
@@ -121,14 +121,14 @@
                         <Insets />
                      </opaqueInsets>
                   </HBox>
-                  <Label prefHeight="32.0" prefWidth="193.0" text="Heuristic yang dipakai adalah melakukan pemprosesan berdasarkan warna yang memiliki anggota posisi paling sedikit" wrapText="true">
+                  <Label prefHeight="58.0" prefWidth="193.0" text="Heuristic yang dipakai adalah melakukan pemprosesan berdasarkan warna yang memiliki anggota posisi paling sedikit" wrapText="true">
                      <font>
                         <Font size="8.0" />
                      </font>
                   </Label>
                </children>
             </VBox>
-            <VBox prefHeight="304.0" prefWidth="193.0">
+            <VBox prefHeight="336.0" prefWidth="185.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="151.0" text="Hasil Iterasi">
                      <font>
@@ -186,7 +186,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" onAction="#saveToPng" text="Save to png">
+                  <Button mnemonicParsing="false" onAction="#saveToTxt" text="Save to txt">
                      <font>
                         <Font size="10.0" />
                      </font>

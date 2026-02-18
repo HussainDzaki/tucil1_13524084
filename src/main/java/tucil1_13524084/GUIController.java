@@ -1,5 +1,6 @@
 package tucil1_13524084;
 
+import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,6 +15,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.application.Platform;
 
 public class GUIController {
@@ -40,7 +43,12 @@ public class GUIController {
 
     private Boolean heuristicState = false;
 
+    private boolean problemSolved = false;
+    private List<Position> currSolusi;
+
     private final Image queenImage = new Image(getClass().getResourceAsStream("/tucil1_13524084/Queen.png"));
+
+    FileChooser fileChooser = new FileChooser();
 
     private static final Color[] WARNA_AZ = {
             Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.ORANGE,
@@ -51,7 +59,14 @@ public class GUIController {
     };
 
     @FXML
+    public void initialize() {
+        File homeDir = new File(System.getProperty("user.dir"));
+        fileChooser.setInitialDirectory(homeDir);
+    }
+
+    @FXML
     void cariSolusi(ActionEvent event) {
+        problemSolved = false;
         SolverBruteForce solver = new SolverBruteForce(board);
         drawBoard(null);
 
@@ -63,11 +78,12 @@ public class GUIController {
 
         Thread solverThred = new Thread(() -> {
             Long startTime = System.nanoTime();
-            boolean solved = solver.solve(heuristicState);
+            problemSolved = solver.solve(heuristicState);
             Long endTime = System.nanoTime();
             Platform.runLater(() -> {
-                if (solved) {
+                if (problemSolved) {
                     drawBoard(solver.getSolusi());
+                    currSolusi = solver.getSolusi();
                     labelOutputHasil.setText("DITEMUKAN SOLUSI");
 
                 } else {
@@ -94,14 +110,20 @@ public class GUIController {
     }
 
     @FXML
-    void saveToPng(ActionEvent event) {
-
+    void saveToTxt(ActionEvent event) {
+        if (problemSolved) {
+            FileIO.saveFile(board, currSolusi, labelOutputWaktuIterasi.getText(), labelOutputBanyakIterasi.getText());
+        }else{
+            labelOutputHasil.setText("Terjadi Kesalahan");
+        }
+        
     }
 
     @FXML
     void uploadStatePapan(ActionEvent event) {
         String input = StatePapan.getText().toUpperCase();
         if (input.isEmpty()) {
+            board = new Board();
             return;
         }
 
@@ -111,7 +133,7 @@ public class GUIController {
             board.inputBoard(input);
             drawBoard(null);
         } catch (Exception e) {
-            System.out.println(e);
+            labelOutputHasil.setText(e.getMessage());
             e.printStackTrace();
         } finally {
             scanner.close();
@@ -121,6 +143,22 @@ public class GUIController {
 
     @FXML
     void uploadTxt(ActionEvent event) {
+        File file = fileChooser.showOpenDialog(new Stage());
+        StatePapan.clear();
+        if (file != null) {
+            try {
+                Scanner sc = new Scanner(file);
+                while (sc.hasNextLine()) {
+                    StatePapan.appendText(sc.nextLine() + "\n");
+                }
+                sc.close();
+            } catch (Exception e) {
+                StatePapan.setText(e.getMessage());
+            }
+
+        } else {
+            StatePapan.appendText("");
+        }
 
     }
 
@@ -165,11 +203,8 @@ public class GUIController {
                 imgv.setPreserveRatio(true);
                 cellStack.getChildren().add(imgv);
             }
-
             stateConfigurasi.add(cellStack, p.col, p.row);
-
         }
-
     }
 
 }
